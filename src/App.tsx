@@ -6,7 +6,7 @@ const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env
 export default function App(){
   const [health, setHealth] = useState<any>(null)
   useEffect(()=>{ getHealth().then(setHealth); const i=setInterval(()=>getHealth().then(setHealth),15000); return ()=>clearInterval(i) },[])
-  const [user,setUser] = useState<any>(null)
+  const [_user,setUser] = useState<any>(null)
   useEffect(()=>{ supabase.auth.getSession().then(({data})=>setUser(data.session?.user)) },[])
 
   return (
@@ -73,3 +73,4 @@ export default function App(){
     </div>
   )
 }
+
