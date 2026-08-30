@@ -117,4 +117,4 @@ export default function App() {
 }
 
 
-const uptimeH = health ? (health.uptime/3600).toFixed(2)+'h' : '-'
+
