@@ -63,7 +63,7 @@ export default function App() {
         {page==='dashboard' && <>
           <h1 style={{ fontSize: 28, fontWeight: 800, margin: '0 0 20px', color: '#0f172a' }}>Enterprise Dashboard</h1>
           <div style={{ background: '#dcfce7', border: '1px solid #86efac', borderRadius: 12, padding: '12px 16px', display: 'flex', gap: 12, marginBottom: 20 }}>
-            <div style={{ width: 10, height: 10, borderRadius: 999, background: '#16a34a', marginTop: 6 }}/> <b style={{ color: '#14532d' }}>✅ {health?.status} - {health?.version} • {uptimeH}</b> <span style={{ marginLeft: 'auto', fontSize: 12, color: '#475569' }}>{health?.timestamp}</span>
+            <div style={{ width: 10, height: 10, borderRadius: 999, background: '#16a34a', marginTop: 6 }}/> <b style={{ color: '#14532d' }}>✅ {health?.status} - {health?.version} • {health ? (health.uptime/3600).toFixed(2)+'h' : '-'}</b> <span style={{ marginLeft: 'auto', fontSize: 12, color: '#475569' }}>{health?.timestamp}</span>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 12, marginBottom: 20 }}>
             {[
@@ -115,6 +115,7 @@ export default function App() {
     </div>
   )
 }
+
 
 
 
